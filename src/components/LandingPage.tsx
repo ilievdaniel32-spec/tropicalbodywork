@@ -485,7 +485,7 @@ export default function LandingPage({ images }: LandingPageProps) {
                 <img
                   src={images.hero}
                   alt="About Tropical Body Work"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-center"
                   referrerPolicy="no-referrer"
                   style={{ filter: 'contrast(1.05) saturate(1.1)' }}
                 />
@@ -515,7 +515,9 @@ export default function LandingPage({ images }: LandingPageProps) {
               </p>
               <div className="flex space-x-4">
                 <a
-                  href="#"
+                  href="https://www.instagram.com/wildphysio/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:border-white hover:text-[var(--color-tropical-leaf)] hover:bg-white transition-all"
                 >
                   <Instagram className="w-4 h-4" />
@@ -577,6 +579,12 @@ export default function LandingPage({ images }: LandingPageProps) {
                 <li className="flex items-center">
                   <Mail className="w-5 h-5 mr-3 text-[var(--color-tropical-wood)] flex-shrink-0" />
                   <span>ilievdaniel32@gmail.com</span>
+                </li>
+                <li className="flex items-center">
+                  <Instagram className="w-5 h-5 mr-3 text-[var(--color-tropical-wood)] flex-shrink-0" />
+                  <a href="https://www.instagram.com/wildphysio/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                    @wildphysio
+                  </a>
                 </li>
               </ul>
             </div>

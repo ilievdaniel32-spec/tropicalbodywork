@@ -9,10 +9,10 @@ import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle2, XCircle, X } from 'lucide-react';
 
 const DEFAULT_IMAGES = {
-  hero: "/hero.jpg",
-  massage: "/pro_massage.jpeg",
+  hero: "/Gemini_Generated_Image_x2tn8qx2tn8qx2tn.png",
+  massage: "/massage.png",
   yoga: "/yoga.png",
-  training: "/training.png"
+  training: "/personal-training.png"
 };
 
 export default function App() {
