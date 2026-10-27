@@ -84,157 +84,63 @@ export default function LandingPage({ images }: LandingPageProps) {
 
   return (
     <>
-      <div className="min-h-screen overflow-hidden bg-stone-50 text-stone-900">
-        {/* Navigation */}
-        <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-stone-950/90 text-white shadow-lg backdrop-blur-xl">
-          <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
-            <a
-              href="#home"
-              onClick={closeMobileMenu}
-              className="group flex items-center gap-3"
-              aria-label="Wild Physio home"
-            >
-              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-emerald-300/40 text-emerald-200">
-                <Mountain size={22} strokeWidth={1.5} />
-              </div>
-              <div>
-                <span className="block text-lg font-semibold tracking-[0.16em]">
-                  WILD PHYSIO
-                </span>
-                <span className="block text-[9px] uppercase tracking-[0.28em] text-stone-400">
-                  Bodywork · Nature · Movement
-                </span>
-              </div>
+      <div className="min-h-screen overflow-hidden bg-[#f7f4ec] text-stone-900">
+        {/* Editorial navigation */}
+        <header className="absolute inset-x-0 top-0 z-50 text-white">
+          <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-5 sm:px-8 lg:py-7">
+            <a href="#home" onClick={closeMobileMenu} className="flex shrink-0 items-center gap-3" aria-label="Wild Physio home">
+              <Mountain size={34} strokeWidth={1} className="text-white" />
+              <span className="flex flex-col">
+                <span className="font-serif text-xl tracking-[0.16em] sm:text-2xl">WILD PHYSIO</span>
+                <span className="text-[8px] uppercase tracking-[0.23em] text-white/80 sm:text-[9px]">Natural movement · Deep healing</span>
+              </span>
             </a>
-
-            <div className="hidden items-center gap-8 md:flex">
-              <a href="#services" className="text-sm text-stone-300 transition hover:text-emerald-200">
-                Services
-              </a>
-              <a href="#signature" className="text-sm text-stone-300 transition hover:text-emerald-200">
-                Signature Ritual
-              </a>
-              <a href="#about" className="text-sm text-stone-300 transition hover:text-emerald-200">
-                About
-              </a>
-              <a href="#contact" className="text-sm text-stone-300 transition hover:text-emerald-200">
-                Contact
-              </a>
-              <button
-                onClick={openBooking}
-                className="inline-flex items-center gap-2 rounded-full bg-emerald-200 px-5 py-3 text-sm font-semibold text-stone-950 transition hover:bg-white"
-              >
-                Book a Session <ArrowUpRight size={16} />
-              </button>
+            <div className="hidden items-center gap-7 lg:flex">
+              <a href="#home" className="text-sm hover:text-white/70">Home</a>
+              <a href="#about" className="text-sm hover:text-white/70">About</a>
+              <a href="#services" className="text-sm hover:text-white/70">Services</a>
+              <a href="#signature" className="text-sm hover:text-white/70">Signature Ritual</a>
+              <a href="#products" className="text-sm hover:text-white/70">Products</a>
+              <a href="#contact" className="text-sm hover:text-white/70">Contact</a>
+              <button onClick={openBooking} className="rounded-full border border-white/80 px-7 py-2.5 text-sm transition hover:bg-white hover:text-stone-900">Book Now</button>
+              <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram size={18}/></a>
+              <a href={`mailto:${EMAIL}`} aria-label="Email"><Mail size={18}/></a>
             </div>
-
-            <button
-              type="button"
-              className="rounded-full border border-white/20 p-2 md:hidden"
-              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-              aria-expanded={isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
+            <button type="button" className="rounded-full border border-white/70 bg-black/20 p-2.5 lg:hidden" aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"} aria-expanded={isMobileMenuOpen} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
               {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </nav>
-
           {isMobileMenuOpen && (
-            <div className="border-t border-white/10 bg-stone-950 px-6 py-5 md:hidden">
-              <div className="mx-auto flex max-w-7xl flex-col gap-5">
+            <div className="mx-4 rounded-xl border border-white/20 bg-[#263022]/95 px-6 py-6 shadow-xl backdrop-blur-lg lg:hidden">
+              <div className="flex flex-col gap-5 text-sm">
+                <a onClick={closeMobileMenu} href="#home">Home</a>
+                <a onClick={closeMobileMenu} href="#about">About</a>
                 <a onClick={closeMobileMenu} href="#services">Services</a>
                 <a onClick={closeMobileMenu} href="#signature">Signature Ritual</a>
-                <a onClick={closeMobileMenu} href="#about">About</a>
+                <a onClick={closeMobileMenu} href="#products">Products</a>
                 <a onClick={closeMobileMenu} href="#contact">Contact</a>
-                <button
-                  onClick={openBooking}
-                  className="rounded-full bg-emerald-200 px-5 py-3 font-semibold text-stone-950"
-                >
-                  Book a Session
-                </button>
+                <button onClick={openBooking} className="rounded-full border border-white px-5 py-3">Book Now</button>
               </div>
             </div>
           )}
         </header>
 
         <main>
-          {/* Hero */}
-          <section id="home" className="relative flex min-h-[90vh] items-center bg-stone-950 pt-24 text-white">
-            <div className="absolute inset-0">
-              <img
-                src={images.hero}
-                alt="Wild Physio holistic bodywork in a natural setting"
-                className="h-full w-full object-cover opacity-45"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-stone-950 via-stone-950/75 to-stone-950/25" />
-              <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-stone-950/20" />
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="relative mx-auto w-full max-w-7xl px-6 py-24 sm:px-8 lg:py-32"
-            >
-              <div className="max-w-3xl">
-                <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-emerald-200/30 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.2em] text-emerald-100 backdrop-blur-sm">
-                  <Leaf size={14} />
-                  Bavaria, Germany · Private & Resort Treatments
-                </div>
-
-                <h1 className="text-5xl font-light leading-[1.08] tracking-tight sm:text-6xl lg:text-8xl">
-                  Come back
-                  <br />
-                  <span className="font-serif italic text-emerald-200">
-                    to yourself.
-                  </span>
-                </h1>
-
-                <p className="mt-7 max-w-xl text-base leading-8 text-stone-200 sm:text-lg">
-                  Personalised therapeutic bodywork, mindful movement and
-                  nature-inspired rituals. A thoughtful approach to relaxation,
-                  mobility and feeling more at home in your body.
-                </p>
-
-                <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                  <button
-                    onClick={openBooking}
-                    className="inline-flex items-center justify-center gap-3 rounded-full bg-emerald-200 px-7 py-4 font-semibold text-stone-950 transition hover:bg-white"
-                  >
-                    Explore Treatments <ArrowUpRight size={18} />
-                  </button>
-                  <a
-                    href="#signature"
-                    className="inline-flex items-center justify-center gap-3 rounded-full border border-white/30 px-7 py-4 text-white transition hover:border-emerald-200 hover:text-emerald-100"
-                  >
-                    Discover the Signature Ritual
-                  </a>
-                </div>
-
-                <div className="mt-14 flex flex-wrap gap-x-8 gap-y-3 text-sm text-stone-300">
-                  <span className="flex items-center gap-2">
-                    <Check size={16} className="text-emerald-200" />
-                    Tailored treatments
-                  </span>
-                  <span className="flex items-center gap-2">
-                    <Check size={16} className="text-emerald-200" />
-                    Botanical inspiration
-                  </span>
-                  <span className="flex items-center gap-2">
-                    <Check size={16} className="text-emerald-200" />
-                    10+ years of experience
-                  </span>
-                </div>
+          {/* Alpine lake hero */}
+          <section id="home" className="relative flex min-h-[680px] items-center justify-center overflow-hidden bg-[#26352e] px-6 pb-20 pt-40 text-center text-white sm:min-h-[740px] sm:pt-36 lg:min-h-[760px]">
+            <img src={images.hero} alt="Golden Alpine lake and mountains" className="absolute inset-0 h-full w-full object-cover object-center" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/20 to-black/40" />
+            <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="relative z-10 mx-auto max-w-3xl">
+              <p className="text-xs uppercase tracking-[0.32em] text-white/95 sm:text-sm">Massage Therapy · Bavaria</p>
+              <h1 className="mt-5 font-serif text-6xl font-normal leading-[1.05] tracking-tight sm:text-7xl lg:text-8xl">Wild Physio</h1>
+              <p className="mt-4 font-serif text-2xl italic leading-snug sm:text-3xl">Natural Healing. Lasting Balance.</p>
+              <p className="mx-auto mt-7 max-w-xl font-serif text-base leading-7 text-white/95 sm:text-lg">Experience nature-inspired bodywork and personalised massage rituals, shaped by the beauty of the Alps.</p>
+              <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+                <button onClick={openBooking} className="rounded-full border border-white bg-white/95 px-7 py-3 text-sm font-medium text-[#293421] transition hover:bg-white">Book Your Treatment</button>
+                <a href="#signature" className="rounded-full border border-white/80 bg-black/10 px-7 py-3 text-sm transition hover:bg-white/20">Explore Signature Ritual</a>
               </div>
             </motion.div>
-
-            <a
-              href="#services"
-              aria-label="Scroll to services"
-              className="absolute bottom-7 left-1/2 hidden -translate-x-1/2 text-white/70 transition hover:text-white sm:block"
-            >
-              <ArrowDown className="animate-bounce" size={24} />
-            </a>
+            <a href="#signature" aria-label="Explore the signature ritual" className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/90"><ArrowDown size={23}/></a>
           </section>
 
           {/* Introduction strip */}
@@ -433,157 +339,63 @@ export default function LandingPage({ images }: LandingPageProps) {
             </div>
           </section>
 
-          {/* Signature ritual */}
-          <section id="signature" className="scroll-mt-24 bg-stone-950 text-white">
-            <div className="grid lg:grid-cols-2">
-              <div className="relative min-h-[420px] bg-stone-800 lg:min-h-[760px]">
-                <img
-                  src={images.massage}
-                  alt="Natural botanical bodywork inspired by the Alpine landscape"
-                  loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 via-transparent to-transparent" />
-                <div className="absolute bottom-8 left-8 right-8 sm:bottom-12 sm:left-12">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-stone-950/30 px-4 py-2 text-xs uppercase tracking-[0.2em] backdrop-blur-sm">
-                    <Sparkles size={14} /> The signature experience
-                  </span>
+          {/* Signature Alpine Botanical Ritual */}
+          <section id="signature" className="scroll-mt-20 bg-[#f7f4ec] px-6 py-16 sm:px-8 lg:py-24">
+            <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-16">
+              <div>
+                <div className="overflow-hidden rounded-sm bg-stone-200">
+                  <img src={images.massage} alt="Alpine botanical massage treatment" loading="lazy" className="aspect-[4/5] w-full object-cover sm:aspect-[5/4] lg:aspect-[4/5]" />
                 </div>
+                <p className="mt-4 font-serif text-lg italic text-[#49503b]">Alpine herbs. Botanical oils. Personalised touch.</p>
               </div>
-
-              <div className="flex items-center px-6 py-16 sm:px-12 lg:px-16 lg:py-24">
-                <div className="max-w-xl">
-                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-emerald-200">
-                    Inspired by the Bavarian Alps
-                  </p>
-                  <h2 className="mt-5 text-4xl font-light leading-tight sm:text-5xl">
-                    Alpine Botanical
-                    <br />
-                    <span className="font-serif italic text-emerald-200">Ritual.</span>
-                  </h2>
-                  <p className="mt-7 leading-8 text-stone-300">
-                    Wild Physio’s signature concept brings together
-                    personalised therapeutic bodywork and the sensory richness
-                    of botanical ingredients inspired by mountain herbs and
-                    forest plants.
-                  </p>
-                  <p className="mt-4 leading-8 text-stone-300">
-                    Each session is tailored to your needs, combining flowing
-                    massage techniques with focused work on areas of tension.
-                    Carefully selected oils and a considered sensory approach
-                    make this a distinctive, nature-inspired wellness
-                    experience.
-                  </p>
-
-                  <div className="mt-8 grid grid-cols-2 gap-4">
-                    {[
-                      "Alpine herbs",
-                      "Nettle & rosemary",
-                      "Rose hip & pine",
-                      "Botanical oils",
-                    ].map((ingredient) => (
-                      <div key={ingredient} className="flex items-center gap-2 text-sm text-stone-200">
-                        <Leaf size={15} className="shrink-0 text-emerald-200" />
-                        {ingredient}
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-8 border-l border-emerald-200/50 pl-4 text-sm leading-6 text-stone-400">
-                    The Wild Physio botanical product collection, including
-                    exfoliating balm and beeswax-based bodycare concepts, is
-                    currently in development. Ingredients used in treatments
-                    will depend on the final formulation and availability.
-                  </div>
-
-                  <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3">
-                    <span className="text-2xl font-medium">From €90</span>
-                    <span className="text-sm text-stone-400">60 · 90 · 120 minutes</span>
-                  </div>
-                  <button
-                    onClick={openBooking}
-                    className="mt-6 inline-flex items-center gap-3 rounded-full bg-emerald-200 px-7 py-4 font-semibold text-stone-950 transition hover:bg-white"
-                  >
-                    Experience the Ritual <ArrowUpRight size={18} />
-                  </button>
+              <div>
+                <p className="text-xs uppercase tracking-[0.25em] text-[#62664e]">Signature Massage</p>
+                <h2 className="mt-5 font-serif text-4xl leading-[1.08] text-[#24251e] sm:text-5xl lg:text-6xl">Wild Physio —<br/>Alpine Botanical Ritual</h2>
+                <p className="mt-5 font-serif text-xl italic text-[#5e624d]">Nature's calming touch, crafted around you.</p>
+                <p className="mt-6 leading-8 text-stone-700">A distinctive massage experience combining personalised therapeutic bodywork, flowing techniques and botanical inspiration from the Alps. Each session is tailored to your comfort, needs and preferred pressure.</p>
+                <p className="mt-4 leading-8 text-stone-700">The botanical product collection is currently in development; treatment ingredients and availability are confirmed individually.</p>
+                <p className="mt-8 text-xs uppercase tracking-[0.22em] text-[#62664e]">The experience</p>
+                <div className="mt-4 grid grid-cols-2 gap-5 border-y border-stone-300 py-6 sm:grid-cols-4">
+                  {[
+                    { icon: Leaf, title: "Alpine botanical inspiration" },
+                    { icon: Sparkles, title: "Considered oils" },
+                    { icon: Wind, title: "Restorative flow" },
+                    { icon: Activity, title: "Therapeutic bodywork" },
+                  ].map(({ icon: Icon, title }) => (
+                    <div key={title} className="flex flex-col items-center gap-3 text-center">
+                      <Icon size={26} strokeWidth={1.3} className="text-[#596044]" />
+                      <span className="font-serif text-sm leading-5 text-stone-700">{title}</span>
+                    </div>
+                  ))}
                 </div>
+                <div className="mt-7 grid grid-cols-3 divide-x divide-stone-300 text-center">
+                  {PRICES.map((item) => <div key={item.duration} className="px-2"><p className="text-xs uppercase tracking-[0.18em] text-stone-500">{item.duration}</p><p className="mt-2 font-serif text-2xl">{item.price}</p></div>)}
+                </div>
+                <button onClick={openBooking} className="mx-auto mt-8 flex items-center justify-center gap-3 rounded-full bg-[#38442a] px-9 py-3.5 text-sm text-white transition hover:bg-[#566546]">Book Your Ritual <ArrowUpRight size={17}/></button>
               </div>
             </div>
           </section>
 
-          {/* Natural product collection */}
-          <section
-            id="products"
-            className="scroll-mt-24 bg-[#f4f0e7] px-6 py-20 sm:px-8 lg:py-28"
-          >
-            <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.75fr_1.5fr] lg:items-center">
+          {/* Natural product collection — concept photography */}
+          <section id="products" className="scroll-mt-20 bg-[#efede5] px-6 py-16 sm:px-8 lg:py-24">
+            <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.7fr] lg:items-center lg:gap-12">
               <div>
-                <p className="text-xs uppercase tracking-[0.28em] text-emerald-900">
-                  The natural collection
-                </p>
-                <h2 className="mt-5 font-serif text-4xl leading-tight text-stone-900 sm:text-5xl">
-                  Pure botanicals.
-                  <br />
-                  <span className="italic">Inspired by the Alps.</span>
-                </h2>
-                <p className="mt-6 max-w-md leading-8 text-stone-600">
-                  A developing collection inspired by mountain herbs,
-                  forest botanicals and the sensory experience of massage.
-                  Created with the Wild Physio philosophy of nature,
-                  bodywork and balance.
-                </p>
-                <p className="mt-4 text-sm leading-6 text-stone-500">
-                  Product concepts shown for presentation. Final ingredients,
-                  formulations and availability are still being developed.
-                </p>
-                <a
-                  href={`https://wa.me/${PHONE_DIGITS}?text=${encodeURIComponent(
-                    "Hello Wild Physio, I'd like to learn more about your botanical product collection."
-                  )}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-7 inline-flex items-center gap-2 border-b border-emerald-900 pb-2 text-sm font-semibold text-emerald-950 transition hover:text-emerald-700"
-                >
-                  Ask about the collection <ArrowUpRight size={16} />
-                </a>
+                <p className="text-xs uppercase tracking-[0.25em] text-[#6b7058]">The natural collection</p>
+                <h2 className="mt-5 font-serif text-4xl leading-tight sm:text-5xl">Pure Botanicals.<br/><span className="italic">Inspired by Nature.</span></h2>
+                <p className="mt-6 max-w-md leading-8 text-stone-700">A developing collection inspired by mountain herbs, forest botanicals and the sensory experience of bodywork.</p>
+                <p className="mt-4 text-sm leading-6 text-stone-600">Concept images only. Formulations, final ingredients and product availability are still being developed.</p>
+                <a href={`https://wa.me/${PHONE_DIGITS}?text=${encodeURIComponent("Hello Wild Physio, I'd like to learn more about your botanical product collection.")}`} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center gap-2 border-b border-[#38442a] pb-2 text-sm font-medium text-[#38442a]">Ask about the collection <ArrowUpRight size={16}/></a>
               </div>
-
-              <div className="grid gap-6 sm:grid-cols-3">
+              <div className="grid gap-5 sm:grid-cols-3">
                 {[
-                  {
-                    name: "Alpine Herbal Massage Oil",
-                    image: "/images/alpine-oil.jpg",
-                    description:
-                      "A lightweight oil concept inspired by rosemary, pine and Alpine herbs.",
-                  },
-                  {
-                    name: "Wild Botanical Peeling Balm",
-                    image: "/images/peeling-balm.jpg",
-                    description:
-                      "A rich balm concept with natural exfoliating particles, subject to final formulation.",
-                  },
-                  {
-                    name: "Alpine Botanical Balm",
-                    image: "/images/botanical-balm.jpg",
-                    description:
-                      "A nourishing balm concept inspired by mountain botanicals and restorative bodycare.",
-                  },
+                  { name: "Alpine Herbal Massage Oil", image: "/images/alpine-oil.jpg", description: "A massage oil concept inspired by rosemary, pine and Alpine herbs." },
+                  { name: "Wild Botanical Peeling Balm", image: "/images/peeling-balm.jpg", description: "A botanical exfoliating balm concept with natural textures." },
+                  { name: "Alpine Botanical Balm", image: "/images/botanical-balm.jpg", description: "A nourishing balm concept inspired by mountain botanicals." },
                 ].map((product) => (
-                  <article key={product.name} className="group">
-                    <div className="aspect-[4/5] overflow-hidden bg-stone-200">
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        loading="lazy"
-                        className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                      />
-                    </div>
-                    <h3 className="mt-5 font-serif text-xl leading-snug text-stone-900">
-                      {product.name}
-                    </h3>
-                    <p className="mt-3 text-sm leading-6 text-stone-600">
-                      {product.description}
-                    </p>
+                  <article key={product.name}>
+                    <div className="overflow-hidden rounded-sm bg-stone-200"><img src={product.image} alt={product.name} loading="lazy" className="aspect-[4/4.5] w-full object-cover transition duration-700 hover:scale-105"/></div>
+                    <h3 className="mt-4 font-serif text-xl leading-snug">{product.name}</h3>
+                    <p className="mt-2 text-sm leading-6 text-stone-600">{product.description}</p>
                   </article>
                 ))}
               </div>
@@ -774,7 +586,7 @@ export default function LandingPage({ images }: LandingPageProps) {
           </section>
 
           {/* Contact */}
-          <section id="contact" className="scroll-mt-24 bg-stone-950 px-6 py-24 text-white sm:px-8 lg:py-28">
+          <section id="contact" className="scroll-mt-24 bg-[#283225] px-6 py-24 text-white sm:px-8 lg:py-28">
             <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:gap-20">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.25em] text-emerald-200">
@@ -867,7 +679,7 @@ export default function LandingPage({ images }: LandingPageProps) {
         </main>
 
         {/* Footer */}
-        <footer className="border-t border-white/10 bg-stone-950 px-6 py-8 text-white sm:px-8">
+        <footer className="border-t border-white/10 bg-[#283225] px-6 py-8 text-white sm:px-8">
           <div className="mx-auto flex max-w-7xl flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
             <a href="#home" className="flex items-center gap-3">
               <Mountain size={23} className="text-emerald-200" />
