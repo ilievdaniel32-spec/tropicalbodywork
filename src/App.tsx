@@ -8,12 +8,14 @@ import LandingPage from './components/LandingPage';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle2, XCircle, X } from 'lucide-react';
 
+
 const DEFAULT_IMAGES = {
-  hero: "/Gemini_Generated_Image_x2tn8qx2tn8qx2tn.png",
-  massage: "/massage.png",
+  hero: "/images/alpine-hero.png",
+  massage: "/images/botanical-massage.jpg",
   yoga: "/yoga.png",
   training: "/personal-training.png"
 };
+  
 
 export default function App() {
   const [paymentStatus, setPaymentStatus] = useState<'success' | 'canceled' | null>(null);
