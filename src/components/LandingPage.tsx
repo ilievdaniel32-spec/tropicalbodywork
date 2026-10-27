@@ -191,91 +191,76 @@ export default function LandingPage({ images }: LandingPageProps) {
 
 
           {/* Massage menu */}
-          <section id="massage-menu" className="scroll-mt-24 bg-white px-6 py-24 sm:px-8 lg:py-32">
-            <div className="mx-auto max-w-7xl">
-              <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-                <div className="lg:sticky lg:top-32 lg:self-start">
-                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-800">
-                    The bodywork menu
-                  </p>
-                  <h2 className="mt-4 font-serif text-5xl font-light leading-tight sm:text-6xl lg:text-7xl">
-                    More than
-                    <br />
-                    <span className="font-serif italic text-emerald-900">a massage.</span>
-                  </h2>
-                  <p className="mt-6 text-lg leading-9 text-stone-600">
-                    Every body is different. Each session begins with a
-                    conversation about how you feel, what you need, and the
-                    pressure and techniques that suit you best.
-                  </p>
+          <section id="massage-menu" className="scroll-mt-24 bg-white px-6 py-20 sm:px-8 lg:py-28">
+            <div className="mx-auto max-w-5xl">
+              <div className="mb-14 max-w-3xl sm:mb-20">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-800">
+                  The bodywork menu
+                </p>
+                <h2 className="mt-4 font-serif text-5xl font-light leading-tight sm:text-6xl lg:text-7xl">
+                  More than<br />
+                  <span className="italic text-emerald-900">a massage.</span>
+                </h2>
+                <p className="mt-6 text-lg leading-9 text-stone-600">
+                  Every body is different. Each session begins with a conversation
+                  about how you feel, what you need, and the pressure and techniques
+                  that suit you best.
+                </p>
+              </div>
 
-                  <div className="mt-8 overflow-hidden rounded-2xl bg-stone-100 p-6">
-                    <div className="flex items-center gap-3">
-                      <Clock size={21} className="text-emerald-800" />
-                      <h3 className="font-semibold">Session lengths & pricing</h3>
-                    </div>
-                    <div className="mt-5 space-y-3">
-                      {PRICES.map((item) => (
-                        <div
-                          key={item.duration}
-                          className="flex items-center justify-between border-b border-stone-200 pb-3 last:border-0 last:pb-0"
-                        >
-                          <span className="text-stone-600">{item.duration}</span>
-                          <span className="text-lg font-semibold">{item.price}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <p className="mt-5 text-xs leading-5 text-stone-500">
-                      Longer sessions allow more time for a considered,
-                      personalised full-body experience.
-                    </p>
-                  </div>
-
-                  <button
-                    onClick={openBooking}
-                    className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-stone-950 px-6 py-4 font-semibold text-white transition hover:bg-emerald-900"
-                  >
-                    Book a Massage <ArrowUpRight size={17} />
-                  </button>
-                </div>
-
-                <div className="divide-y divide-stone-200">
-                  {massageServices.map((service, index) => (
-                    <article key={service.name} className="py-8 first:pt-0 last:pb-0">
-                      <div className="flex gap-4">
-                        <span className="pt-1 font-serif text-xl italic text-emerald-800">
-                          0{index + 1}
-                        </span>
-                        <div>
-                          <h3 className="font-serif text-3xl font-medium leading-tight tracking-tight sm:text-4xl">
-                            {service.name}
-                          </h3>
-                          <p className="mt-3 text-base font-medium text-emerald-900">
-                            {service.subtitle}
-                          </p>
-                          <p className="mt-4 text-base leading-8 text-stone-600 sm:text-lg">
-                            {service.description}
-                          </p>
-                          <div className="mt-4 flex flex-wrap gap-2">
-                            {service.tags.map((tag) => (
-                              <span
-                                key={tag}
-                                className="rounded-full border border-stone-200 px-3 py-1.5 text-xs text-stone-600"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                          <p className="mt-5 text-sm font-semibold text-stone-800">
-                            60 min €90 <span className="mx-2 text-stone-300">/</span>
-                            90 min €125 <span className="mx-2 text-stone-300">/</span>
-                            120 min €160
-                          </p>
+              <div className="divide-y divide-stone-200">
+                {massageServices.map((service, index) => (
+                  <article key={service.name} className="py-9 first:pt-0 sm:py-12">
+                    <div className="flex gap-4 sm:gap-8">
+                      <span className="pt-2 font-serif text-xl italic text-emerald-800">
+                        0{index + 1}
+                      </span>
+                      <div className="min-w-0 flex-1">
+                        <h3 className="font-serif text-3xl font-medium leading-tight tracking-tight sm:text-4xl">
+                          {service.name}
+                        </h3>
+                        <p className="mt-3 text-base font-medium text-emerald-900">
+                          {service.subtitle}
+                        </p>
+                        <p className="mt-4 text-base leading-8 text-stone-600 sm:text-lg">
+                          {service.description}
+                        </p>
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {service.tags.map((tag) => (
+                            <span key={tag} className="rounded-full border border-stone-200 px-3 py-1.5 text-xs text-stone-600">
+                              {tag}
+                            </span>
+                          ))}
                         </div>
                       </div>
-                    </article>
-                  ))}
+                    </div>
+                  </article>
+                ))}
+              </div>
+
+              {/* Pricing and booking follow all five massage descriptions */}
+              <div className="mx-auto mt-12 max-w-2xl sm:mt-16">
+                <div className="overflow-hidden rounded-2xl bg-stone-100 p-6 sm:p-9">
+                  <div className="flex items-center gap-3">
+                    <Clock size={23} className="text-emerald-800" />
+                    <h3 className="font-serif text-2xl">Session lengths & pricing</h3>
+                  </div>
+                  <div className="mt-6 space-y-4">
+                    {PRICES.map((item) => (
+                      <div key={item.duration} className="flex items-center justify-between border-b border-stone-200 pb-4 last:border-0 last:pb-0">
+                        <span className="text-stone-600">{item.duration}</span>
+                        <span className="text-xl font-semibold">{item.price}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="mt-6 text-sm leading-6 text-stone-500">
+                    Longer sessions allow more time for a considered,
+                    personalised full-body experience.
+                  </p>
                 </div>
+                <button onClick={openBooking} className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-stone-950 px-6 py-4 font-semibold text-white transition hover:bg-emerald-900">
+                  Book a Massage <ArrowUpRight size={17} />
+                </button>
               </div>
             </div>
           </section>
