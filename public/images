@@ -1,6 +1,8 @@
-const DEFAULT_IMAGES = {
-  hero: "/images/alpine-hero.jpg",
-  massage: "/images/botanical-massage.jpg",
-  yoga: "/yoga.png",
-  training: "/personal-training.png"
-};
+public/
+  images/
+    .gitkeep
+    alpine-hero.jpg
+    botanical-massage.jpg
+    alpine-oil.jpg
+    peeling-balm.jpg
+    botanical-balm.jpg
