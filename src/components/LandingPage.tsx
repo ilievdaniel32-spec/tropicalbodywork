@@ -29,8 +29,9 @@ interface LandingPageProps {
   };
 }
 
-const PHONE_DISPLAY = "+34 691 277 066";
+const PHONE_DISPLAY = "+49 1573 1525411";
 const PHONE_DIGITS = "34691277066";
+const CALL_PHONE_DIGITS = "4915731525411";
 const EMAIL = "ilievdaniel32@gmail.com";
 const INSTAGRAM_URL = "https://www.instagram.com/wildphysio/";
 
@@ -403,7 +404,7 @@ export default function LandingPage({ images }: LandingPageProps) {
 
               <div className="space-y-4">
                 <a
-                  href={`tel:+${PHONE_DIGITS}`}
+                  href={`tel:+${CALL_PHONE_DIGITS}`}
                   className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:bg-white/10"
                 >
                   <Phone className="mt-1 shrink-0 text-emerald-200" size={21} />
