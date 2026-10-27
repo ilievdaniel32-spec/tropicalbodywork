@@ -155,7 +155,7 @@ export default function LandingPage({ images }: LandingPageProps) {
           {/* Signature Alpine Botanical Ritual */}
           <section id="signature" className="scroll-mt-20 bg-[#f7f4ec] px-6 py-16 sm:px-8 lg:py-24">
             <div className="mx-auto mb-9 max-w-7xl sm:mb-12">
-              <p className="text-xs uppercase tracking-[0.25em] text-[#62664e]">Signature Massage</p>
+              <p className="font-serif text-xl uppercase tracking-[0.16em] text-[#62664e] sm:text-2xl">Signature Massage</p>
               <h2 className="mt-5 font-serif text-4xl leading-[1.08] text-[#24251e] sm:text-5xl lg:text-6xl">Wild Physio —<br/>Alpine Botanical Ritual</h2>
             </div>
             <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-16">
@@ -357,9 +357,9 @@ export default function LandingPage({ images }: LandingPageProps) {
               </div>
               <div className="grid gap-8 md:grid-cols-3">
                 {[
-                  { title: "Private Yoga", image: images.yoga, description: "Personalised yoga, breathwork and mindful movement tailored to your experience." },
-                  { title: "Movement Coaching", image: images.training, description: "Individual training focused on mobility, functional strength and confident movement." },
-                  { title: "Private Retreats", image: images.hero, description: "Bespoke wellness experiences combining bodywork, movement and time in nature." },
+                  { title: "Private Yoga", image: "/images/luxury-yoga.jpg", description: "Personalised yoga, breathwork and mindful movement tailored to your experience." },
+                  { title: "Movement Coaching", image: "/images/luxury-movement.jpg", description: "Individual training focused on mobility, functional strength and confident movement." },
+                  { title: "Private Retreats", image: "/images/luxury-retreat.jpg", description: "Bespoke wellness experiences combining bodywork, movement and time in nature." },
                 ].map((offering) => (
                   <article key={offering.title} className="group">
                     <div className="overflow-hidden bg-stone-200">
