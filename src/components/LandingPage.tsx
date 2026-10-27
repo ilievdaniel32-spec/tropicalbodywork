@@ -69,6 +69,13 @@ const massageServices = [
       "A gentle, rhythmic treatment focused on comfort and relaxation. Pressure and suitability are discussed beforehand. This wellness treatment is not a substitute for medically indicated lymphatic drainage or treatment of lymphatic conditions.",
     tags: ["Gentle pressure", "Rhythmic touch", "Relaxation"],
   },
+  {
+    name: "Lomi Lomi Hawaiian Massage",
+    subtitle: "A flowing ritual of rhythm and relaxation.",
+    description:
+      "Inspired by traditional Hawaiian Lomi Lomi, this nurturing full-body massage uses long, continuous strokes and flowing forearm movements to create a sense of ease and connection. Pressure, pace and technique are tailored to your comfort for an immersive, deeply relaxing experience.",
+    tags: ["Flowing forearm strokes", "Full-body relaxation", "Hawaiian-inspired"],
+  },
 ];
 
 export default function LandingPage({ images }: LandingPageProps) {
@@ -142,50 +149,61 @@ export default function LandingPage({ images }: LandingPageProps) {
                 <a href="#signature" className="rounded-full border border-white/80 bg-black/10 px-7 py-3 text-sm transition hover:bg-white/20">Explore Signature Ritual</a>
               </div>
             </motion.div>
-            <a href="#massage-menu" aria-label="Explore massage treatments" className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/90"><ArrowDown size={23}/></a>
+            <a href="#signature" aria-label="Discover the Alpine Botanical Ritual" className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/90"><ArrowDown size={23}/></a>
           </section>
 
-          {/* Introduction strip */}
-          <section className="border-b border-stone-200 bg-white">
-            <div className="mx-auto grid max-w-7xl gap-8 px-6 py-10 sm:px-8 md:grid-cols-3">
-              <div className="flex items-center gap-4">
-                <Activity className="shrink-0 text-emerald-800" size={27} strokeWidth={1.5} />
-                <div>
-                  <p className="font-medium">Therapeutic bodywork</p>
-                  <p className="mt-1 text-sm text-stone-500">Personalised hands-on care</p>
+          {/* Signature Alpine Botanical Ritual */}
+          <section id="signature" className="scroll-mt-20 bg-[#f7f4ec] px-6 py-16 sm:px-8 lg:py-24">
+            <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-16">
+              <div>
+                <div className="overflow-hidden rounded-sm bg-stone-200">
+                  <img src={images.massage} alt="Alpine botanical massage treatment" loading="lazy" className="aspect-[4/5] w-full object-cover sm:aspect-[5/4] lg:aspect-[4/5]" />
                 </div>
+                <p className="mt-4 font-serif text-lg italic text-[#49503b]">Alpine herbs. Botanical oils. Personalised touch.</p>
               </div>
-              <div className="flex items-center gap-4">
-                <Leaf className="shrink-0 text-emerald-800" size={27} strokeWidth={1.5} />
-                <div>
-                  <p className="font-medium">Nature-inspired rituals</p>
-                  <p className="mt-1 text-sm text-stone-500">Botanical oils and Alpine inspiration</p>
+              <div>
+                <p className="text-xs uppercase tracking-[0.25em] text-[#62664e]">Signature Massage</p>
+                <h2 className="mt-5 font-serif text-4xl leading-[1.08] text-[#24251e] sm:text-5xl lg:text-6xl">Wild Physio —<br/>Alpine Botanical Ritual</h2>
+                <p className="mt-5 font-serif text-xl italic text-[#5e624d]">Nature's calming touch, crafted around you.</p>
+                <p className="mt-6 leading-8 text-stone-700">A distinctive massage experience combining personalised therapeutic bodywork, flowing techniques and botanical inspiration from the Alps. Each session is tailored to your comfort, needs and preferred pressure.</p>
+                <p className="mt-4 leading-8 text-stone-700">The botanical product collection is currently in development; treatment ingredients and availability are confirmed individually.</p>
+                <p className="mt-8 text-xs uppercase tracking-[0.22em] text-[#62664e]">The experience</p>
+                <div className="mt-4 grid grid-cols-2 gap-5 border-y border-stone-300 py-6 sm:grid-cols-4">
+                  {[
+                    { icon: Leaf, title: "Alpine botanical inspiration" },
+                    { icon: Sparkles, title: "Considered oils" },
+                    { icon: Wind, title: "Restorative flow" },
+                    { icon: Activity, title: "Therapeutic bodywork" },
+                  ].map(({ icon: Icon, title }) => (
+                    <div key={title} className="flex flex-col items-center gap-3 text-center">
+                      <Icon size={26} strokeWidth={1.3} className="text-[#596044]" />
+                      <span className="font-serif text-sm leading-5 text-stone-700">{title}</span>
+                    </div>
+                  ))}
                 </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <Wind className="shrink-0 text-emerald-800" size={27} strokeWidth={1.5} />
-                <div>
-                  <p className="font-medium">Holistic movement</p>
-                  <p className="mt-1 text-sm text-stone-500">Body awareness, mobility and balance</p>
+                <div className="mt-7 grid grid-cols-3 divide-x divide-stone-300 text-center">
+                  {PRICES.map((item) => <div key={item.duration} className="px-2"><p className="text-xs uppercase tracking-[0.18em] text-stone-500">{item.duration}</p><p className="mt-2 font-serif text-2xl">{item.price}</p></div>)}
                 </div>
+                <button onClick={openBooking} className="mx-auto mt-8 flex items-center justify-center gap-3 rounded-full bg-[#38442a] px-9 py-3.5 text-sm text-white transition hover:bg-[#566546]">Book Your Ritual <ArrowUpRight size={17}/></button>
               </div>
             </div>
           </section>
+
 
           {/* Massage menu */}
           <section id="massage-menu" className="scroll-mt-24 bg-white px-6 py-24 sm:px-8 lg:py-32">
             <div className="mx-auto max-w-7xl">
               <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
                 <div className="lg:sticky lg:top-32 lg:self-start">
-                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-emerald-800">
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-800">
                     The bodywork menu
                   </p>
-                  <h2 className="mt-4 text-4xl font-light leading-tight sm:text-5xl">
+                  <h2 className="mt-4 font-serif text-5xl font-light leading-tight sm:text-6xl lg:text-7xl">
                     More than
                     <br />
                     <span className="font-serif italic text-emerald-900">a massage.</span>
                   </h2>
-                  <p className="mt-6 leading-8 text-stone-600">
+                  <p className="mt-6 text-lg leading-9 text-stone-600">
                     Every body is different. Each session begins with a
                     conversation about how you feel, what you need, and the
                     pressure and techniques that suit you best.
@@ -229,13 +247,13 @@ export default function LandingPage({ images }: LandingPageProps) {
                           0{index + 1}
                         </span>
                         <div>
-                          <h3 className="text-2xl font-medium tracking-tight">
+                          <h3 className="font-serif text-3xl font-medium leading-tight tracking-tight sm:text-4xl">
                             {service.name}
                           </h3>
-                          <p className="mt-2 text-sm font-medium text-emerald-900">
+                          <p className="mt-3 text-base font-medium text-emerald-900">
                             {service.subtitle}
                           </p>
-                          <p className="mt-4 leading-7 text-stone-600">
+                          <p className="mt-4 text-base leading-8 text-stone-600 sm:text-lg">
                             {service.description}
                           </p>
                           <div className="mt-4 flex flex-wrap gap-2">
@@ -258,43 +276,6 @@ export default function LandingPage({ images }: LandingPageProps) {
                     </article>
                   ))}
                 </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Signature Alpine Botanical Ritual */}
-          <section id="signature" className="scroll-mt-20 bg-[#f7f4ec] px-6 py-16 sm:px-8 lg:py-24">
-            <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-16">
-              <div>
-                <div className="overflow-hidden rounded-sm bg-stone-200">
-                  <img src={images.massage} alt="Alpine botanical massage treatment" loading="lazy" className="aspect-[4/5] w-full object-cover sm:aspect-[5/4] lg:aspect-[4/5]" />
-                </div>
-                <p className="mt-4 font-serif text-lg italic text-[#49503b]">Alpine herbs. Botanical oils. Personalised touch.</p>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-[0.25em] text-[#62664e]">Signature Massage</p>
-                <h2 className="mt-5 font-serif text-4xl leading-[1.08] text-[#24251e] sm:text-5xl lg:text-6xl">Wild Physio —<br/>Alpine Botanical Ritual</h2>
-                <p className="mt-5 font-serif text-xl italic text-[#5e624d]">Nature's calming touch, crafted around you.</p>
-                <p className="mt-6 leading-8 text-stone-700">A distinctive massage experience combining personalised therapeutic bodywork, flowing techniques and botanical inspiration from the Alps. Each session is tailored to your comfort, needs and preferred pressure.</p>
-                <p className="mt-4 leading-8 text-stone-700">The botanical product collection is currently in development; treatment ingredients and availability are confirmed individually.</p>
-                <p className="mt-8 text-xs uppercase tracking-[0.22em] text-[#62664e]">The experience</p>
-                <div className="mt-4 grid grid-cols-2 gap-5 border-y border-stone-300 py-6 sm:grid-cols-4">
-                  {[
-                    { icon: Leaf, title: "Alpine botanical inspiration" },
-                    { icon: Sparkles, title: "Considered oils" },
-                    { icon: Wind, title: "Restorative flow" },
-                    { icon: Activity, title: "Therapeutic bodywork" },
-                  ].map(({ icon: Icon, title }) => (
-                    <div key={title} className="flex flex-col items-center gap-3 text-center">
-                      <Icon size={26} strokeWidth={1.3} className="text-[#596044]" />
-                      <span className="font-serif text-sm leading-5 text-stone-700">{title}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-7 grid grid-cols-3 divide-x divide-stone-300 text-center">
-                  {PRICES.map((item) => <div key={item.duration} className="px-2"><p className="text-xs uppercase tracking-[0.18em] text-stone-500">{item.duration}</p><p className="mt-2 font-serif text-2xl">{item.price}</p></div>)}
-                </div>
-                <button onClick={openBooking} className="mx-auto mt-8 flex items-center justify-center gap-3 rounded-full bg-[#38442a] px-9 py-3.5 text-sm text-white transition hover:bg-[#566546]">Book Your Ritual <ArrowUpRight size={17}/></button>
               </div>
             </div>
           </section>
