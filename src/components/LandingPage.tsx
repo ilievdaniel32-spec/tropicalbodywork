@@ -154,6 +154,10 @@ export default function LandingPage({ images }: LandingPageProps) {
 
           {/* Signature Alpine Botanical Ritual */}
           <section id="signature" className="scroll-mt-20 bg-[#f7f4ec] px-6 py-16 sm:px-8 lg:py-24">
+            <div className="mx-auto mb-9 max-w-7xl sm:mb-12">
+              <p className="text-xs uppercase tracking-[0.25em] text-[#62664e]">Signature Massage</p>
+              <h2 className="mt-5 font-serif text-4xl leading-[1.08] text-[#24251e] sm:text-5xl lg:text-6xl">Wild Physio —<br/>Alpine Botanical Ritual</h2>
+            </div>
             <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-16">
               <div>
                 <div className="overflow-hidden rounded-sm bg-stone-200">
@@ -162,8 +166,6 @@ export default function LandingPage({ images }: LandingPageProps) {
                 <p className="mt-4 font-serif text-lg italic text-[#49503b]">Alpine herbs. Botanical oils. Personalised touch.</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-[0.25em] text-[#62664e]">Signature Massage</p>
-                <h2 className="mt-5 font-serif text-4xl leading-[1.08] text-[#24251e] sm:text-5xl lg:text-6xl">Wild Physio —<br/>Alpine Botanical Ritual</h2>
                 <p className="mt-5 font-serif text-xl italic text-[#5e624d]">Nature's calming touch, crafted around you.</p>
                 <p className="mt-6 leading-8 text-stone-700">A distinctive massage experience combining personalised therapeutic bodywork, flowing techniques and botanical inspiration from the Alps. Each session is tailored to your comfort, needs and preferred pressure.</p>
                 <p className="mt-4 leading-8 text-stone-700">The botanical product collection is currently in development; treatment ingredients and availability are confirmed individually.</p>
