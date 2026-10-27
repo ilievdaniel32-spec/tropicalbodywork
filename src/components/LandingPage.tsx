@@ -168,8 +168,7 @@ export default function LandingPage({ images }: LandingPageProps) {
               </div>
               <div>
                 <p className="mt-5 font-serif text-xl italic text-[#5e624d]">Nature's calming touch, crafted around you.</p>
-                <p className="mt-6 leading-8 text-stone-700">A distinctive massage experience combining personalised therapeutic bodywork, flowing techniques and botanical inspiration from the Alps. Each session is tailored to your comfort, needs and preferred pressure.</p>
-                <p className="mt-4 leading-8 text-stone-700">The botanical product collection is currently in development; treatment ingredients and availability are confirmed individually.</p>
+                <p className="mt-6 leading-8 text-stone-700">A distinctive massage experience combining personalised therapeutic bodywork, flowing techniques and botanical inspiration from the Alps.</p>
                 <p className="mt-8 text-xs uppercase tracking-[0.22em] text-[#62664e]">The experience</p>
                 <div className="mt-4 grid grid-cols-2 gap-5 border-y border-stone-300 py-6 sm:grid-cols-4">
                   {[
