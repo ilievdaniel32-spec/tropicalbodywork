@@ -98,9 +98,10 @@ export default function LandingPage({ images }: LandingPageProps) {
             <div className="hidden items-center gap-7 lg:flex">
               <a href="#home" className="text-sm hover:text-white/70">Home</a>
               <a href="#about" className="text-sm hover:text-white/70">About</a>
-              <a href="#services" className="text-sm hover:text-white/70">Services</a>
+              <a href="#massage-menu" className="text-sm hover:text-white/70">Massage</a>
               <a href="#signature" className="text-sm hover:text-white/70">Signature Ritual</a>
               <a href="#products" className="text-sm hover:text-white/70">Products</a>
+              <a href="#beyond-bodywork" className="text-sm hover:text-white/70">Beyond Bodywork</a>
               <a href="#contact" className="text-sm hover:text-white/70">Contact</a>
               <button onClick={openBooking} className="rounded-full border border-white/80 px-7 py-2.5 text-sm transition hover:bg-white hover:text-stone-900">Book Now</button>
               <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram size={18}/></a>
@@ -115,9 +116,10 @@ export default function LandingPage({ images }: LandingPageProps) {
               <div className="flex flex-col gap-5 text-sm">
                 <a onClick={closeMobileMenu} href="#home">Home</a>
                 <a onClick={closeMobileMenu} href="#about">About</a>
-                <a onClick={closeMobileMenu} href="#services">Services</a>
+                <a onClick={closeMobileMenu} href="#massage-menu">Massage</a>
                 <a onClick={closeMobileMenu} href="#signature">Signature Ritual</a>
                 <a onClick={closeMobileMenu} href="#products">Products</a>
+                <a onClick={closeMobileMenu} href="#beyond-bodywork">Beyond Bodywork</a>
                 <a onClick={closeMobileMenu} href="#contact">Contact</a>
                 <button onClick={openBooking} className="rounded-full border border-white px-5 py-3">Book Now</button>
               </div>
@@ -140,7 +142,7 @@ export default function LandingPage({ images }: LandingPageProps) {
                 <a href="#signature" className="rounded-full border border-white/80 bg-black/10 px-7 py-3 text-sm transition hover:bg-white/20">Explore Signature Ritual</a>
               </div>
             </motion.div>
-            <a href="#signature" aria-label="Explore the signature ritual" className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/90"><ArrowDown size={23}/></a>
+            <a href="#massage-menu" aria-label="Explore massage treatments" className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/90"><ArrowDown size={23}/></a>
           </section>
 
           {/* Introduction strip */}
@@ -166,85 +168,6 @@ export default function LandingPage({ images }: LandingPageProps) {
                   <p className="font-medium">Holistic movement</p>
                   <p className="mt-1 text-sm text-stone-500">Body awareness, mobility and balance</p>
                 </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Services */}
-          <section id="services" className="scroll-mt-24 px-6 py-24 sm:px-8 lg:py-32">
-            <div className="mx-auto max-w-7xl">
-              <div className="mx-auto mb-14 max-w-2xl text-center">
-                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-emerald-800">
-                  A personalised approach
-                </p>
-                <h2 className="mt-4 text-4xl font-light tracking-tight sm:text-5xl">
-                  Wellness, shaped around you.
-                </h2>
-                <p className="mt-5 leading-7 text-stone-600">
-                  Choose a focused bodywork session, a mindful movement
-                  practice, or a more immersive private wellness experience.
-                </p>
-              </div>
-
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-                {[
-                  {
-                    title: "Massage Therapy",
-                    text: "Personalised therapeutic massage, deep tissue techniques and restorative bodywork.",
-                    image: images.massage,
-                    href: "#massage-menu",
-                    number: "01",
-                  },
-                  {
-                    title: "Yoga Sessions",
-                    text: "Private movement and breath-led sessions adapted to your experience and goals.",
-                    image: images.yoga,
-                    href: "#yoga-menu",
-                    number: "02",
-                  },
-                  {
-                    title: "Personal Training",
-                    text: "Individual movement coaching focused on strength, mobility and functional fitness.",
-                    image: images.training,
-                    href: "#training-menu",
-                    number: "03",
-                  },
-                  {
-                    title: "Private Retreats",
-                    text: "Bespoke wellness experiences combining movement, bodywork and time in nature.",
-                    image: images.hero,
-                    href: "#retreats",
-                    number: "04",
-                  },
-                ].map((service) => (
-                  <a
-                    key={service.title}
-                    href={service.href}
-                    className="group overflow-hidden rounded-2xl border border-stone-200 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-xl"
-                  >
-                    <div className="relative h-56 overflow-hidden bg-stone-200">
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        loading="lazy"
-                        className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 to-transparent" />
-                      <span className="absolute bottom-4 left-5 text-sm tracking-widest text-white/80">
-                        {service.number}
-                      </span>
-                    </div>
-                    <div className="p-6">
-                      <h3 className="text-xl font-medium">{service.title}</h3>
-                      <p className="mt-3 min-h-[72px] text-sm leading-6 text-stone-600">
-                        {service.text}
-                      </p>
-                      <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-emerald-900">
-                        Explore <ArrowUpRight size={16} />
-                      </span>
-                    </div>
-                  </a>
-                ))}
               </div>
             </div>
           </section>
@@ -402,135 +325,6 @@ export default function LandingPage({ images }: LandingPageProps) {
             </div>
           </section>
 
-          {/* Yoga */}
-          <section id="yoga-menu" className="scroll-mt-24 px-6 py-24 sm:px-8 lg:py-28">
-            <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
-              <div className="overflow-hidden rounded-2xl bg-stone-200">
-                <img
-                  src={images.yoga}
-                  alt="Yoga and mindful movement"
-                  loading="lazy"
-                  className="h-[360px] w-full object-cover sm:h-[480px]"
-                />
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-emerald-800">
-                  Breath · Balance · Movement
-                </p>
-                <h2 className="mt-4 text-4xl font-light sm:text-5xl">
-                  Private Yoga Sessions
-                </h2>
-                <p className="mt-5 leading-8 text-stone-600">
-                  Personalised yoga sessions that meet you where you are.
-                  Explore mindful movement, breathing and mobility in a
-                  supportive practice adapted to your experience and goals.
-                </p>
-                <div className="mt-7 space-y-4">
-                  {[
-                    ["Vinyasa", "A flowing practice linking breath and movement."],
-                    ["Hatha", "A balanced approach to postures, breath and focus."],
-                    ["Yin & Restorative", "Slower, supported practices for rest and stillness."],
-                  ].map(([name, description]) => (
-                    <div key={name} className="border-b border-stone-200 pb-4">
-                      <h3 className="font-semibold">{name}</h3>
-                      <p className="mt-1 text-sm leading-6 text-stone-600">{description}</p>
-                    </div>
-                  ))}
-                </div>
-                <p className="mt-6 text-sm text-stone-500">
-                  Session pricing available on request.
-                </p>
-                <button
-                  onClick={openBooking}
-                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-stone-950 px-6 py-3.5 font-semibold text-white transition hover:bg-emerald-900"
-                >
-                  Enquire About Yoga <ArrowUpRight size={17} />
-                </button>
-              </div>
-            </div>
-          </section>
-
-          {/* Personal training */}
-          <section id="training-menu" className="scroll-mt-24 bg-stone-100 px-6 py-24 sm:px-8 lg:py-28">
-            <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
-              <div className="order-2 lg:order-1">
-                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-emerald-800">
-                  Strength · Function · Resilience
-                </p>
-                <h2 className="mt-4 text-4xl font-light sm:text-5xl">
-                  Personal Training
-                </h2>
-                <p className="mt-5 leading-8 text-stone-600">
-                  Individual coaching built around your body, your lifestyle
-                  and your goals. Sessions can focus on strength, functional
-                  movement, mobility and building a more confident relationship
-                  with exercise.
-                </p>
-                <div className="mt-7 grid gap-3 sm:grid-cols-2">
-                  {[
-                    "Strength & conditioning",
-                    "Functional movement",
-                    "Mobility & movement skills",
-                    "Individual coaching",
-                  ].map((item) => (
-                    <div key={item} className="flex items-center gap-3 rounded-xl border border-stone-200 bg-white p-4 text-sm">
-                      <Check size={17} className="shrink-0 text-emerald-800" />
-                      {item}
-                    </div>
-                  ))}
-                </div>
-                <p className="mt-6 text-sm text-stone-500">
-                  Session pricing available on request.
-                </p>
-                <button
-                  onClick={openBooking}
-                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-stone-950 px-6 py-3.5 font-semibold text-white transition hover:bg-emerald-900"
-                >
-                  Enquire About Training <ArrowUpRight size={17} />
-                </button>
-              </div>
-              <div className="order-1 overflow-hidden rounded-2xl bg-stone-200 lg:order-2">
-                <img
-                  src={images.training}
-                  alt="Functional movement and personal training"
-                  loading="lazy"
-                  className="h-[360px] w-full object-cover sm:h-[480px]"
-                />
-              </div>
-            </div>
-          </section>
-
-          {/* Retreats */}
-          <section id="retreats" className="scroll-mt-24 bg-white px-6 py-24 sm:px-8 lg:py-28">
-            <div className="mx-auto max-w-5xl rounded-3xl bg-emerald-950 px-7 py-12 text-white sm:px-12 sm:py-16">
-              <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-emerald-200">
-                    Time to reset
-                  </p>
-                  <h2 className="mt-4 text-3xl font-light sm:text-4xl">
-                    Private Wellness Retreats
-                  </h2>
-                  <p className="mt-5 max-w-2xl leading-8 text-emerald-50/80">
-                    Bespoke wellness experiences bringing together bodywork,
-                    yoga, breathwork, mindful movement and time in nature.
-                    Retreats can be developed for private groups, special
-                    occasions and hospitality partners.
-                  </p>
-                  <p className="mt-4 text-sm text-emerald-100/70">
-                    Tailored formats and availability by enquiry.
-                  </p>
-                </div>
-                <button
-                  onClick={openBooking}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-4 font-semibold text-emerald-950 transition hover:bg-emerald-100"
-                >
-                  Discuss a Retreat <ArrowUpRight size={17} />
-                </button>
-              </div>
-            </div>
-          </section>
-
           {/* About */}
           <section id="about" className="scroll-mt-24 px-6 py-24 sm:px-8 lg:py-32">
             <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:gap-20">
@@ -581,6 +375,36 @@ export default function LandingPage({ images }: LandingPageProps) {
                     </p>
                   </div>
                 </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Beyond bodywork: discreet complementary services */}
+          <section id="beyond-bodywork" className="scroll-mt-24 bg-[#f3efe5] px-6 py-20 sm:px-8 lg:py-28">
+            <div className="mx-auto max-w-7xl">
+              <div className="mx-auto mb-12 max-w-2xl text-center">
+                <p className="text-xs uppercase tracking-[0.28em] text-[#667052]">The Wild Physio Experience</p>
+                <h2 className="mt-5 font-serif text-4xl text-[#292d26] sm:text-5xl">Beyond <span className="italic">Bodywork.</span></h2>
+                <p className="mt-5 leading-8 text-stone-600">Wellness extends beyond the massage table. Discover personalised movement and immersive experiences that complement your bodywork journey.</p>
+              </div>
+              <div className="grid gap-8 md:grid-cols-3">
+                {[
+                  { title: "Private Yoga", image: images.yoga, description: "Personalised yoga, breathwork and mindful movement tailored to your experience." },
+                  { title: "Movement Coaching", image: images.training, description: "Individual training focused on mobility, functional strength and confident movement." },
+                  { title: "Private Retreats", image: images.hero, description: "Bespoke wellness experiences combining bodywork, movement and time in nature." },
+                ].map((offering) => (
+                  <article key={offering.title} className="group">
+                    <div className="overflow-hidden bg-stone-200">
+                      <img src={offering.image} alt={offering.title} loading="lazy" className="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-105 md:aspect-[3/4]" />
+                    </div>
+                    <h3 className="mt-5 font-serif text-2xl text-[#292d26]">{offering.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-stone-600">{offering.description}</p>
+                  </article>
+                ))}
+              </div>
+              <div className="mt-10 text-center">
+                <p className="text-sm text-stone-600">Available by private enquiry.</p>
+                <a href={`https://wa.me/${PHONE_DIGITS}?text=${encodeURIComponent("Hello Wild Physio, I'd like to enquire about your additional wellness experiences.")}`} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 border-b border-[#38442a] pb-2 text-sm font-medium text-[#38442a]">Enquire About Wellness Experiences <ArrowUpRight size={16} /></a>
               </div>
             </div>
           </section>
