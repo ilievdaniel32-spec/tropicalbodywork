@@ -2,6 +2,16 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Loader2, CheckCircle2 } from 'lucide-react';
 
+const MASSAGE_PRICES: Record<string, number> = { '60': 90, '90': 125, '120': 160 };
+const SERVICES = [
+  'Deep Tissue & Therapeutic Bodywork',
+  'Swedish Relaxation Massage',
+  'Traditional Thai Bodywork',
+  'Gentle Lymphatic-Inspired Massage',
+  'Lomi Lomi Hawaiian Massage',
+  'Wild Physio — Alpine Botanical Ritual',
+];
+
 interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -13,9 +23,8 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
   const [error, setError] = useState('');
 
   const [formData, setFormData] = useState({
-    service: 'Swedish Massage',
+    service: 'Swedish Relaxation Massage',
     duration: '60',
-    addon: false,
     date: '',
     time: '',
     name: '',
@@ -24,34 +33,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
     notes: ''
   });
 
-  const YOGA_SERVICES = ['Vinyasa Flow', 'Hatha Yoga', 'Yin Yoga', 'Restorative Yoga'];
-  const TRAINING_SERVICES = ['Strength & Conditioning', 'Functional Training', 'HIIT Sessions', 'Rehabilitation & Recovery'];
-
-  const isMassage = formData.service.includes('Massage');
-  const isYoga = YOGA_SERVICES.includes(formData.service);
-  const isTraining = TRAINING_SERVICES.includes(formData.service);
-
-  const calculateTotal = () => {
-    let total = 0;
-    if (isMassage) {
-      if (formData.duration === '60') total = 45;
-      else if (formData.duration === '90') total = 60;
-      else if (formData.duration === '120') total = 80;
-    } else if (isYoga) {
-      if (formData.duration === '60') total = 40;
-      else if (formData.duration === '90') total = 55;
-      else if (formData.duration === '120') total = 70;
-    } else if (isTraining) {
-      if (formData.duration === '60') total = 45;
-      else if (formData.duration === '90') total = 60;
-      else if (formData.duration === '120') total = 80;
-    }
-
-    if (isMassage && formData.addon) {
-      total += 25;
-    }
-    return total;
-  };
+  const calculateTotal = () => MASSAGE_PRICES[formData.duration] ?? 90;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const value = e.target.type === 'checkbox' ? (e.target as HTMLInputElement).checked : e.target.value;
@@ -76,6 +58,8 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
         throw new Error(data.error || 'Failed to initiate payment');
       }
 
+      // IMPORTANT: The server must independently validate the service and charge
+      // the current EUR price; client-side totals do not control Stripe charges.
       // Redirect to Stripe Checkout
       if (data.url) {
         window.location.href = data.url;
@@ -143,24 +127,10 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                     required
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--color-tropical-leaf)] focus:ring-1 focus:ring-[var(--color-tropical-leaf)] outline-none transition-all bg-white font-light"
                   >
-                    <optgroup label="Massage Therapy">
-                      <option value="Swedish Massage">Swedish Massage</option>
-                      <option value="Deep Tissue Massage">Deep Tissue Massage</option>
-                      <option value="Thai Massage">Thai Massage</option>
-                      <option value="Lymphatic Drainage Massage">Lymphatic Drainage Massage</option>
-                      <option value="Tropical Signature Massage">Tropical Signature Massage</option>
-                    </optgroup>
-                    <optgroup label="Yoga Sessions">
-                      <option value="Vinyasa Flow">Vinyasa Flow</option>
-                      <option value="Hatha Yoga">Hatha Yoga</option>
-                      <option value="Yin Yoga">Yin Yoga</option>
-                      <option value="Restorative Yoga">Restorative Yoga</option>
-                    </optgroup>
-                    <optgroup label="Personal Training">
-                      <option value="Strength & Conditioning">Strength & Conditioning</option>
-                      <option value="Functional Training">Functional Training</option>
-                      <option value="HIIT Sessions">HIIT Sessions</option>
-                      <option value="Rehabilitation & Recovery">Rehabilitation & Recovery</option>
+                    <optgroup label="Massage Therapy & Signature Ritual">
+                      {SERVICES.map((service) => (
+                        <option key={service} value={service}>{service}</option>
+                      ))}
                     </optgroup>
                   </select>
                 </div>
@@ -174,41 +144,11 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--color-tropical-leaf)] focus:ring-1 focus:ring-[var(--color-tropical-leaf)] outline-none transition-all bg-white font-light"
                     >
-                      {isYoga ? (
-                        <>
-                          <option value="60">60 Minutes ($40)</option>
-                          <option value="90">90 Minutes ($55)</option>
-                          <option value="120">120 Minutes ($70)</option>
-                        </>
-                      ) : (
-                        <>
-                          <option value="60">60 Minutes ($45)</option>
-                          <option value="90">90 Minutes ($60)</option>
-                          <option value="120">120 Minutes ($80)</option>
-                        </>
-                      )}
+                      {Object.entries(MASSAGE_PRICES).map(([minutes, price]) => (
+                        <option key={minutes} value={minutes}>{minutes} Minutes (€{price})</option>
+                      ))}
                     </select>
                   </div>
-                  {isMassage && (
-                    <div className="flex items-center pt-8">
-                      <label className="flex items-center cursor-pointer group">
-                        <div className="relative flex items-center justify-center w-6 h-6 mr-3">
-                          <input 
-                            type="checkbox" 
-                            name="addon"
-                            checked={formData.addon}
-                            onChange={handleChange}
-                            className="peer appearance-none w-6 h-6 border-2 border-gray-300 rounded-md checked:bg-[var(--color-tropical-leaf)] checked:border-[var(--color-tropical-leaf)] transition-colors cursor-pointer"
-                          />
-                          <CheckCircle2 className="absolute w-4 h-4 text-white opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity" />
-                        </div>
-                        <div className="flex flex-col">
-                          <span className="text-sm font-medium text-[var(--color-tropical-ink)] group-hover:text-[var(--color-tropical-leaf)] transition-colors">Tropical Enzyme Ritual</span>
-                          <span className="text-xs text-gray-500">+$25 Add-on</span>
-                        </div>
-                      </label>
-                    </div>
-                  )}
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
@@ -299,7 +239,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                       Processing...
                     </>
                   ) : (
-                    `Pay $${calculateTotal()} & Book`
+                    `Pay €${calculateTotal()} & Book`
                   )}
                 </button>
               </form>
