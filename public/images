@@ -1,1 +1,6 @@
-
+const DEFAULT_IMAGES = {
+  hero: "/images/alpine-hero.jpg",
+  massage: "/images/botanical-massage.jpg",
+  yoga: "/yoga.png",
+  training: "/personal-training.png"
+};
