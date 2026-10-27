@@ -511,6 +511,85 @@ export default function LandingPage({ images }: LandingPageProps) {
             </div>
           </section>
 
+          {/* Natural product collection */}
+          <section
+            id="products"
+            className="scroll-mt-24 bg-[#f4f0e7] px-6 py-20 sm:px-8 lg:py-28"
+          >
+            <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.75fr_1.5fr] lg:items-center">
+              <div>
+                <p className="text-xs uppercase tracking-[0.28em] text-emerald-900">
+                  The natural collection
+                </p>
+                <h2 className="mt-5 font-serif text-4xl leading-tight text-stone-900 sm:text-5xl">
+                  Pure botanicals.
+                  <br />
+                  <span className="italic">Inspired by the Alps.</span>
+                </h2>
+                <p className="mt-6 max-w-md leading-8 text-stone-600">
+                  A developing collection inspired by mountain herbs,
+                  forest botanicals and the sensory experience of massage.
+                  Created with the Wild Physio philosophy of nature,
+                  bodywork and balance.
+                </p>
+                <p className="mt-4 text-sm leading-6 text-stone-500">
+                  Product concepts shown for presentation. Final ingredients,
+                  formulations and availability are still being developed.
+                </p>
+                <a
+                  href={`https://wa.me/${PHONE_DIGITS}?text=${encodeURIComponent(
+                    "Hello Wild Physio, I'd like to learn more about your botanical product collection."
+                  )}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-7 inline-flex items-center gap-2 border-b border-emerald-900 pb-2 text-sm font-semibold text-emerald-950 transition hover:text-emerald-700"
+                >
+                  Ask about the collection <ArrowUpRight size={16} />
+                </a>
+              </div>
+
+              <div className="grid gap-6 sm:grid-cols-3">
+                {[
+                  {
+                    name: "Alpine Herbal Massage Oil",
+                    image: "/images/alpine-oil.jpg",
+                    description:
+                      "A lightweight oil concept inspired by rosemary, pine and Alpine herbs.",
+                  },
+                  {
+                    name: "Wild Botanical Peeling Balm",
+                    image: "/images/peeling-balm.jpg",
+                    description:
+                      "A rich balm concept with natural exfoliating particles, subject to final formulation.",
+                  },
+                  {
+                    name: "Alpine Botanical Balm",
+                    image: "/images/botanical-balm.jpg",
+                    description:
+                      "A nourishing balm concept inspired by mountain botanicals and restorative bodycare.",
+                  },
+                ].map((product) => (
+                  <article key={product.name} className="group">
+                    <div className="aspect-[4/5] overflow-hidden bg-stone-200">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                    <h3 className="mt-5 font-serif text-xl leading-snug text-stone-900">
+                      {product.name}
+                    </h3>
+                    <p className="mt-3 text-sm leading-6 text-stone-600">
+                      {product.description}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+
           {/* Yoga */}
           <section id="yoga-menu" className="scroll-mt-24 px-6 py-24 sm:px-8 lg:py-28">
             <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
