@@ -30,9 +30,9 @@ interface LandingPageProps {
 }
 
 const PHONE_DISPLAY = "+49 1573 1525411";
-const PHONE_DIGITS = "34691277066";
+const PHONE_DIGITS = "4915731525411";
 const CALL_PHONE_DIGITS = "4915731525411";
-const EMAIL = "ilievdaniel32@gmail.com";
+const EMAIL = "contact@wildphysio.com";
 const INSTAGRAM_URL = "https://www.instagram.com/wildphysio/";
 
 const PRICES = [
